@@ -4,13 +4,9 @@
 # Create a local service account user for administration and apply the Teradici license #
 #########################################################################################
 
-#ps1
-
-# Add a user as local administrator
 
 function Add-LocalAdmin {
-    # Create a local user account and add the user as a local administrator
-    # Usage: Add-LocalAdmin -Name Test10 -Password Password1
+    # Usage: Add-LocalAdmin -Name MyUsername -Password MyPassword
     param(
         [Parameter(Mandatory=$true, ValueFromPipeline=$true)] $Name,
         [Parameter(Mandatory=$true, ValueFromPipeline=$true)] $Password
@@ -27,8 +23,8 @@ function Add-LocalAdmin {
     return $new_user
 }
 
-# To set the registry key
 function Register-TeradiciAgent {
+    # Usage: Register-TeradiciAgent -RegistrationCode "VVVVVVVVVVVV@1111-1111-1111-1111"
     param(
         [Parameter(Mandatory=$true, ValueFromPipeline=$true)] $RegistrationCode
     )
@@ -36,7 +32,3 @@ function Register-TeradiciAgent {
     $expression = "& '$filename' register --registration-code $RegistrationCode"
     Invoke-Expression $expression
 }
-
-# Usage:
-# Add-LocalAdmin -Name MyUsername -Password MyPassword
-# Register-TeradiciAgent -RegistrationCode "VVVVVVVVVVVV@1111-1111-1111-1111"
