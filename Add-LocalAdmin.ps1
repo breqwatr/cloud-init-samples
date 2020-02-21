@@ -1,3 +1,4 @@
+#ps1
 function Add-LocalAdmin {
     # Usage: Add-LocalAdmin -Name MyUsername -Password MyPassword
     param(
