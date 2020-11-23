@@ -67,8 +67,6 @@ system_info:
 # vim:syntax=yaml
 EOH
 
-# Delete the old network interface files, cloud-init will make a new one
-rm -f $rootDiskPath/etc/sysconfig/network-scripts/*
 
 # Leave an indicator that this did run correctly
 touch "$rootDiskPath/etc/.is-migrated"
